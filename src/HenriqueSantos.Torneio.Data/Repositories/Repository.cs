@@ -18,6 +18,7 @@ namespace HenriqueSantos.Torneio.Data.Repositories
         public Repository(TorneioContext context)
         {
             _context = context;
+            _dbSet = _context.Set<T>();
         }
 
         public async Task Adicionar(T entidade) => await _dbSet.AddAsync(entidade);
@@ -35,9 +36,15 @@ namespace HenriqueSantos.Torneio.Data.Repositories
             .AsNoTrackingWithIdentityResolution()
             .FirstOrDefaultAsync();
 
-        public async Task<IEnumerable<T>> ObterTodosAsNoTrack(Expression<Func<T, bool>> predicate = null) =>
-            await _dbSet.Where(predicate)
-            .AsNoTrackingWithIdentityResolution()
-            .ToListAsync();
+        public async Task<IEnumerable<T>> ObterTodosAsNoTrack(Expression<Func<T, bool>> predicate = null)
+        {
+            var query = _dbSet
+                .AsNoTrackingWithIdentityResolution();
+
+            if (predicate is not null)
+                query = query.Where(predicate);
+
+            return await query.ToListAsync();
+        }
     }
 }
