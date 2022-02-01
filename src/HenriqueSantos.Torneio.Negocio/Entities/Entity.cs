@@ -1,14 +1,15 @@
-﻿using System;
+﻿using HenriqueSantos.Torneio.Negocio.Interfaces;
+using System;
 
 namespace HenriqueSantos.Torneio.Negocio.Entities
 {
-    public abstract class Entity 
+    public abstract class Entity : IEntity
     {
-        protected Guid Id { get; private set; }
-        protected DateTime CriadoEm { get; private set; }
-        protected DateTime AlteradoEm { get; private set; }
+        public Guid Id { get; private set; }
+        public DateTime CriadoEm { get; private set; }
+        public DateTime AlteradoEm { get; private set; }
 
-        public Entity()
+        protected Entity()
         {
             Id = Guid.NewGuid();
             AtualizarDatas();
