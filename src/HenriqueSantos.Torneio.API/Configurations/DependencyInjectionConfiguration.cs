@@ -1,6 +1,9 @@
-﻿using HenriqueSantos.Torneio.Data.Context;
+﻿using HenriqueSantos.Torneio.Aplicacao.Services;
+using HenriqueSantos.Torneio.Aplicacao.Services.Interfaces;
+using HenriqueSantos.Torneio.Data.Context;
 using HenriqueSantos.Torneio.Data.Repositories;
 using HenriqueSantos.Torneio.Negocio.Interfaces.Repositories;
+using HenriqueSantos.Torneio.Negocio.Services;
 
 namespace HenriqueSantos.Torneio.API.Configurations
 {
@@ -12,6 +15,9 @@ namespace HenriqueSantos.Torneio.API.Configurations
 
             services.AddScoped<ICampeonatoRepository, CampeonatoRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddScoped<INotificaService, NotificaService>();
+            services.AddScoped<ICampeonatoService, CampeonatoService>();
         }
     }
 }

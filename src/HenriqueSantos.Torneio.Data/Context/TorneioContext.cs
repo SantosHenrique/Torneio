@@ -16,6 +16,5 @@ namespace HenriqueSantos.Torneio.Data.Context
             //Varre um determinado assembly, identifica todos que implementam IEntityTypeConfiguration e os registra
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
-
     }
 }
