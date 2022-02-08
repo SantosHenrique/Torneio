@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using HenriqueSantos.Torneio.API.Dto;
+using HenriqueSantos.Torneio.Aplicacao.Dto;
 using HenriqueSantos.Torneio.Negocio.Entities;
 
-namespace HenriqueSantos.Torneio.API.Mappings
+namespace HenriqueSantos.Torneio.Aplicacao.Mappings
 {
     public class AutoMapperMap : Profile
     {

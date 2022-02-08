@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddApiConfiguration();
 
 builder.Services.AddDatabaseConfiguration(builder.Configuration);
+builder.Services.AddIdentityConfiguration(builder.Configuration);
 
 builder.Services.AddSwaggerConfiguration();
 
@@ -17,10 +18,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
+app.UseApiConfiguration();
 
 app.Run();
