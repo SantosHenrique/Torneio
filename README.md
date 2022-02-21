@@ -21,7 +21,7 @@ cria-se a migration e atualiza-se o banco.
 
 ## Funcionalidades
 
-Autenticação do usuário e operaçõe~s básicas (CRUD). 
+Autenticação do usuário e operações básicas (CRUD). 
 
 ## Licença
 
