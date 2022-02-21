@@ -6,13 +6,18 @@ namespace HenriqueSantos.Torneio.Negocio.Services
 {
     public class NotificaService : INotificaService
     {
-        public IList<Notificacao> Notificacoes { get; private set; } = new List<Notificacao>();
+        public Notificacao Notificacao { get; private set; } = new Notificacao();
 
-        public void Adicionar(IEnumerable<string> mensagens, string chave = null)
+        public void Adicionar(string mensagem)
         {
-            Notificacoes.Add(new Notificacao(chave, mensagens));
+            Notificacao.AdicionarMensagem(mensagem);
         }
 
-        public bool TemNotificacao() => Notificacoes.Any();
+        public void Adicionar(IEnumerable<string> mensagem)
+        {
+            Notificacao.AdicionarMensagem(mensagem);
+        }
+
+        public bool TemNotificacao() => Notificacao.Messages.Any();
     }
 }

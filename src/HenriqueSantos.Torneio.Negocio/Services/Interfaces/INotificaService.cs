@@ -6,8 +6,9 @@ namespace HenriqueSantos.Torneio.Negocio.Services
 {
     public interface INotificaService
     {
-        void Adicionar(IEnumerable<string> mensagens, string chave = null);
-        IList<Notificacao> Notificacoes { get; }
+        void Adicionar(IEnumerable<string> mensagens);
+        void Adicionar(string mensagem);
+        Notificacao Notificacao { get; }
         bool TemNotificacao();
     }
 }

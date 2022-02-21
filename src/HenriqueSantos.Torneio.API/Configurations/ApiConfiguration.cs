@@ -14,6 +14,27 @@ namespace HenriqueSantos.Torneio.API.Configurations
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Dev", builder => 
+                { 
+                    builder.AllowAnyOrigin();
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyHeader();
+                });
+            });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Prod", builder =>
+                {
+                    builder.WithOrigins("dominio-do-front");
+                    builder.WithMethods("GET,POST");
+                    builder.WithHeaders("...");
+                    builder.WithExposedHeaders("...");
+                });
+            });
         }
 
         public static void UseApiConfiguration(this WebApplication app)

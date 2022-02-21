@@ -4,13 +4,20 @@ namespace HenriqueSantos.Torneio.Negocio.Objects
 {
     public class Notificacao
     {
-        public string Key { get; private set; }
-        public IEnumerable<string> Messages { get; private set; }
+        public List<string> Messages { get; private set; } = new List<string>();
 
-        public Notificacao(string chave, IEnumerable<string> mensagens)
+        public Notificacao()
         {
-            Key = chave;
-            Messages = mensagens;
+        }
+
+        public void AdicionarMensagem(string mensagem)
+        {
+            Messages.Add(mensagem);
+        }
+
+        public void AdicionarMensagem(IEnumerable<string> mensagens)
+        {
+            Messages.AddRange(mensagens);
         }
     }
 }
