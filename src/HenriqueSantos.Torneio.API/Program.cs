@@ -14,8 +14,14 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
+    app.UseCors("Dev");
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+else
+{
+    app.UseCors("Prod");
+    app.UseHsts(); ;
 }
 
 app.UseApiConfiguration();

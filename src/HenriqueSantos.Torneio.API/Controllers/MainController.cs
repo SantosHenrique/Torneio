@@ -1,4 +1,5 @@
 using AutoMapper;
+using HenriqueSantos.Torneio.Negocio.Interfaces;
 using HenriqueSantos.Torneio.Negocio.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -10,12 +11,20 @@ namespace HenriqueSantos.Torneio.API.Controllers
     {
         protected readonly IMapper _mapper;
         private readonly INotificaService _notificaService;
+        protected readonly IUsuario _usuario;
+        protected readonly bool UsuarioAutenticado;
+        protected readonly Guid UsuarioId;
 
         public MainController(IMapper mapper,
-            INotificaService notificaService)
+            INotificaService notificaService,
+            IUsuario usuario)
         {
             _mapper = mapper;
             _notificaService = notificaService;
+            _usuario = usuario;
+
+            UsuarioAutenticado = _usuario.Autenticado();
+            UsuarioId = _usuario.ObterId();
         }
 
         protected ActionResult CustomResponse(object? result = null)
@@ -24,7 +33,6 @@ namespace HenriqueSantos.Torneio.API.Controllers
             {
                 return Ok(new
                 {
-                    success = true,
                     data = result
                 });
             }
@@ -32,9 +40,8 @@ namespace HenriqueSantos.Torneio.API.Controllers
             {
                 return BadRequest(new
                 {
-                    success = false,
                     data = result,
-                    errors = _notificaService.Notificacoes
+                    errors = _notificaService.Notificacao.Messages
                 });
             }
         }
@@ -49,7 +56,7 @@ namespace HenriqueSantos.Torneio.API.Controllers
 
         protected void AddErro(string mensagem)
         {
-            _notificaService.Adicionar(new List<string> { mensagem }, string.Empty);
+            _notificaService.Adicionar(mensagem);
         }
 
         private bool OperacaoValida() =>
