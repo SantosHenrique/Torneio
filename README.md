@@ -19,7 +19,7 @@ Swagger + documentação XML, Identity, EF Core 6, Code First Migrations, Reposi
 Após o clone, o clean e build solution, sempre são bem vindos. Depois disso, necessita-se da string de conexão no appsettings.Development.json. Posto isto, 
 atualiza-se o banco (Update-Database).
 
-1. Git Clone https://github.com/SantosHenrique/dotnet-api-torneio.git
+1. git clone https://github.com/SantosHenrique/dotnet-api-torneio.git
 2. Clean e Build Solution
 3. "Set as Startup Project" para Torneio.API
 4. Ajuste a string de conexão no arquivo appsettings.Development.json (projeto Torneio.API)
