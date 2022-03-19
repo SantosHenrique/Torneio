@@ -11,7 +11,7 @@ até o momento (21/02/21).
 
 ## Tecnologias, ferramentas e conceitos
 
-API REST .NET 6, C# 10, Visual Studio 2022 e GIT. Além do REST, Clean Architecture e os princípios SOLID, encontram-se no projeto. Entre os demais recursos utilizados estão: 
+API REST .NET 6, C# 10, SQL Server, Visual Studio 2022 e GIT. Além do REST, Clean Architecture e os princípios SOLID, encontram-se no projeto. Entre os demais recursos utilizados estão: 
 Swagger + documentação XML, Identity, EF Core 6, Code First Migrations, Repository Pattern + Unit Of Work, Mapeamento de entidades com o AutoMapper e Record types.  
 
 ## Build
@@ -19,7 +19,13 @@ Swagger + documentação XML, Identity, EF Core 6, Code First Migrations, Reposi
 Após o clone, o clean e build solution, sempre são bem vindos. Depois disso, necessita-se da string de conexão no appsettings.Development.json. Posto isto, 
 atualiza-se o banco (Update-Database).
 
-1- git clone https://github.com/SantosHenrique/dotnet-api-torneio.git 1
+1. Git Clone https://github.com/SantosHenrique/dotnet-api-torneio.git
+2. Clean e Build Solution
+3. "Set as Startup Project" para Torneio.API
+4. Ajuste a string de conexão no arquivo appsettings.Development.json (projeto Torneio.API)
+5. Update-Database -Context TorneioContext (projeto Torneio.Data)
+6. Update-Database -Context TorneioIdentityContext (projeto Torneio.Data)
+7. Feito! Basta executar o projeto
 
 ## Funcionalidades
 
