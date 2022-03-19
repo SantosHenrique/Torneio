@@ -16,7 +16,7 @@ Swagger + documentação XML, Identity, EF Core 6, Code First Migrations, Reposi
 
 ## Build
 
-Após o clone, o clean e build solution, sempre são bem vindos. Depois disso, necessita-se da string de conexão no appsettings.Development.json. Posto isto, 
+Após o clone (git clone https://github.com/SantosHenrique/dotnet-api-torneio.git), o clean e build solution, sempre são bem vindos. Depois disso, necessita-se da string de conexão no appsettings.Development.json. Posto isto, 
 atualiza-se o banco (Update-Database).
 
 ## Funcionalidades
