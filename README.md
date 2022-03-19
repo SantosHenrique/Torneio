@@ -17,7 +17,7 @@ Swagger + documentação XML, Identity, EF Core 6, Code First Migrations, Reposi
 ## Build
 
 Após o clone, o clean e build solution, sempre são bem vindos. Depois disso, necessita-se da string de conexão no appsettings.Development.json. Posto isto, 
-cria-se a migration e atualiza-se o banco.
+atualiza-se o banco (Update-Database).
 
 ## Funcionalidades
 
